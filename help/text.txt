@@ -1,0 +1,29 @@
+ --ctrl +shift+k :xóa dòng
+ --ctrl +enter :chèn dòng dưới
+ --ctrl +shift +enter:chèn dòng trên
+ --shift +alt + xuống :copy xuống
+ --shift +alt + lên:copy lên
+ --ctrl +D
+ --ctrl +shift +L
+ --rmdir .git : hủy git init
+ --mkdir (Đường dẫn bạn muốn đặt thư mục repo)
+ --cd (Tên repo vừa tạo) để chuyển sang repo đó làm việc $ git init
+ --Git config : là câu lệnh mà chúng ta phải thực thi đầu tiên cài đặt git lên máy. Câu lệnh này sẽ giúp các bạn thiết lập tên và email cá nhân của bạn, những thông tin này sẽ đính kèm trong mọi commit của bạn, đều này sẽ rất hữu ích khi chúng ta muốn biết đoạn code nào đó đã được ai triển khai để có thể thảo luận trong trường hợp chúng ta không hiểu rõ đoạn code đấy sử dụng cho mục đích gì
+ --git version
+ --git init :Đây là câu lệnh đầu tiên khi chúng ta bắt đầu một dự án mới, câu lệnh này sẽ giúp chúng ta tạo một repository mới, sau đó nó sẽ được sử dụng để lưu trữ và quản lý mã nguồn trong repository này.
+ --git clone :Câu lệnh này sẽ giúp chúng ta download một repository đã tồn tại sẵn trên khô lưu trữu (github, gitlab v.v) về máy.
+ --Git add : là câu lệnh giúp chúng ta thêm tất cả các file code mới mới hoặc các file code được chỉnh sửa vào repository.
+ --git commit :câu lệnh này sẽ giúp chúng ta lưu các thay đổi ở các file trong vùng staging area xuống repository.
+ --git status :Câu lệnh này cho phép bạn xem tình trạng hiện tại của mã nguồn như có bao nhiêu file được thêm mới hoặc chỉnh sửa.  Những file nào đang nằm trong vùng staging area hoặc đang nằm ngoài staging area
+ --git branch : Trong một Git repository luôn luôn tồn tại nhiều nhánh riêng biệt dùng để triển khai một tính năng nào đó độc lập với các nhánh khác
+  +git branch -M branch_mane (main) - Đổi tên nhánh chính
+  +git branch -d branch_mane - Xóa một nhánh tại local có tên: "branch_mane" (branch đã được hợp nhất (push) vào remote repository)
+  +git checkout -b branch_mane (Tạo và chuyển luôn sang nhánh mới) - Tạo một nhánh có tên “branch_mane” và hợp nhất (merge) nó với nhánh chính.
+  --git checkout:Để di chuyển qua lại giữa các branch, chúng ta có thể sử dụng git checkout để đạt được điều này.
+  +git checkout -b branch_mane (Tạo và chuyển luôn sang nhánh mới)
+  +git checkout branch_mane - Lệnh trên giúp di chuyển không gian làm việc, kiểm tra tệp giữa các branch_mane
+  --Git merge :Di chuyển về branch cần hợp nhất bằng lệnh checkout.
+  --git pull origin main - Git pull kéo tất cả các thay đổi từ main về local.
+  --git remote add origin url
+  --git log :Với câu lệnh git log các bạn có thể xem tất cả những commit trước đó được sắp xếp theo thứ tự commit gần nhất cho đến những commit cũ hơn.
+
