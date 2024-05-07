@@ -146,23 +146,29 @@ public class FrameScreen extends JFrame {
     // }
     // }
     public static void UpdateData() {
-        // Thực hiện cập nhật dữ liệu vào cơ sở dữ liệu thay vì ghi vào tệp văn bản
         String dbUrl = "jdbc:sqlserver://DESKTOP-46N1BIK\\SQLEXPRESS:1433;databaseName=game;user=sa;password=123456;"
                 + "encrypt=true;trustServerCertificate=true";
 
         try (Connection conn = DriverManager.getConnection(dbUrl)) {
             // Xóa dữ liệu cũ trong bảng Player
             String deleteDataSql = "DELETE FROM Player";
-            PreparedStatement deleteStmt = conn.prepareStatement(deleteDataSql);
-            deleteStmt.executeUpdate();
+            try (PreparedStatement deleteStmt = conn.prepareStatement(deleteDataSql)) {
+                deleteStmt.executeUpdate();
+            }
 
             // Thêm dữ liệu mới từ danh sách người chơi vào cơ sở dữ liệu
             String insertDataSql = "INSERT INTO Player (username, level) VALUES (?, ?)";
-            PreparedStatement pstmt = conn.prepareStatement(insertDataSql);
-            for (User u : users) {
-                pstmt.setString(1, u.getName());
-                pstmt.setInt(2, u.getLevel()); // Sử dụng setInt() cho cột kiểu INT
-                pstmt.executeUpdate();
+            try (PreparedStatement pstmt = conn.prepareStatement(insertDataSql)) {
+                conn.setAutoCommit(false); // Disable auto-commit
+
+                for (User u : users) {
+                    pstmt.setString(1, u.getName());
+                    pstmt.setInt(2, u.getLevel());
+                    pstmt.addBatch();
+                }
+
+                pstmt.executeBatch(); // Execute all updates in a batch
+                conn.commit(); // Commit the transaction
             }
         } catch (SQLException ex) {
             System.out.println("SQL Exception: " + ex.getMessage());
@@ -173,6 +179,9 @@ public class FrameScreen extends JFrame {
         // Thực hiện đọc dữ liệu từ cơ sở dữ liệu thay vì từ tệp văn bản
         String dbUrl = "jdbc:sqlserver://DESKTOP-46N1BIK\\SQLEXPRESS:1433;databaseName=game;user=sa;password=123456;"
                 + "encrypt=true;trustServerCertificate=true";
+
+        // Tạo mới danh sách users
+        users = new ArrayList<>();
 
         try (Connection conn = DriverManager.getConnection(dbUrl)) {
             java.sql.Statement stmt = conn.createStatement();

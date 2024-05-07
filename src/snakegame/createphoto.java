@@ -26,15 +26,15 @@ public class createphoto {
         Graphics g = result.getGraphics();
 
         String[] images = {
-                "E:/java/project/picture/head.png",
-                "E:/java/project/picture/headdown.png",
-                "E:/java/project/picture/headleft.png",
-                "E:/java/project/picture/headright.png",
-                "E:/java/project/picture/headup.png",
-                "E:/java/project/picture/worm.png",
-                "E:/java/project/picture/worm.png",
-                "E:/java/project/picture/worm.png",
-                "E:/java/project/picture/body.png"
+                "E:/java/project/src/snakegame/picture/head.png",
+                "E:/java/project/src/snakegame/picture/headdown.png",
+                "E:/java/project/src/snakegame/picture/headleft.png",
+                "E:/java/project/src/snakegame/picture/headright.png",
+                "E:/java/project/src/snakegame/picture/headup.png",
+                "E:/java/project/src/snakegame/picture/worm.png",
+                "E:/java/project/src/snakegame/picture/worm.png",
+                "E:/java/project/src/snakegame/picture/worm.png",
+                "E:/java/project/src/snakegame/picture/body.png"
         };
 
         for (int i = 0; i < images.length; i++) {
