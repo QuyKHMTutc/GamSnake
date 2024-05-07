@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package snakegame;
 
 import java.awt.event.KeyEvent;
@@ -41,7 +37,7 @@ public class FrameScreen extends JFrame {
         setLocationRelativeTo(null);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        users = new ArrayList<User>();
+        // users = new ArrayList<User>();
         ReadData();
 
         game = new GameScreen();
@@ -110,41 +106,6 @@ public class FrameScreen extends JFrame {
 
     }
 
-    // public static void UpdateData() {
-    // BufferedWriter bw = null;
-    // try {
-    // FileWriter fw = new FileWriter("data/data1.txt");
-    // bw = new BufferedWriter(fw);
-
-    // for (User u : users) {
-    // bw.write(u.getName() + " " + u.getLevel());
-    // bw.newLine();
-    // }
-
-    // } catch (IOException ex) {
-    // } finally {
-    // try {
-    // bw.close();
-    // } catch (IOException ex) {
-    // }
-    // }
-    // }
-
-    // public static void ReadData() {
-    // try {
-    // FileReader fr = new FileReader("data/data1.txt");
-    // BufferedReader br = new BufferedReader(fr);
-
-    // String line = null;
-    // while ((line = br.readLine()) != null) {
-    // String[] str = line.split(" ");
-    // users.add(new User(str[0], str[1]));
-    // }
-
-    // br.close();
-    // } catch (IOException ex) {
-    // }
-    // }
     public static void UpdateData() {
         String dbUrl = "jdbc:sqlserver://DESKTOP-46N1BIK\\SQLEXPRESS:1433;databaseName=game;user=sa;password=123456;"
                 + "encrypt=true;trustServerCertificate=true";
@@ -184,13 +145,18 @@ public class FrameScreen extends JFrame {
         users = new ArrayList<>();
 
         try (Connection conn = DriverManager.getConnection(dbUrl)) {
-            java.sql.Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * FROM Player");
+            // Thực hiện truy vấn SQL để lấy tên và cấp độ của 5 người chơi có cấp độ cao
+            // nhất
+            String query = "SELECT TOP 5 username, level FROM Player ORDER BY level DESC";
+            try (java.sql.Statement stmt = conn.createStatement()) {
+                ResultSet rs = stmt.executeQuery(query);
 
-            while (rs.next()) {
-                String name = rs.getString("username");
-                int level = rs.getInt("level");
-                users.add(new User(name, level));
+                while (rs.next()) {
+                    String name = rs.getString("username");
+                    int level = rs.getInt("level");
+                    // Thêm người chơi vào danh sách với tên và cấp độ thực tế từ cơ sở dữ liệu
+                    users.add(new User(name, level));
+                }
             }
         } catch (SQLException ex) {
             System.out.println("SQL Exception: " + ex.getMessage());

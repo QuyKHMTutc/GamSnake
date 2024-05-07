@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package snakegame;
 
 import java.awt.Color;
@@ -170,48 +166,48 @@ public class Snake {
             }
 
             // điều kiện khi rắn qua vùng biên
-            if (x[0] < 0)
-                x[0] = 19;
-            if (x[0] > 19)
-                x[0] = 0;
+            // if (x[0] < 0)
+            // x[0] = 19;
+            // if (x[0] > 19)
+            // x[0] = 0;
 
-            if (y[0] < 0)
-                y[0] = 19;
-            if (y[0] > 19)
-                y[0] = 0;
-            // if (x[0] < 0) {
-            // String name = JOptionPane.showInputDialog("Mời bạn nhập tên: ");
-            // FrameScreen.users.add(new User(name,
-            // String.valueOf(GameScreen.currentLevel)));
-            // GameScreen.isPlaying = false;
-            // GameScreen.isGameOver = true;
-            // GameScreen.diem = 0;
-            // GameScreen.currentLevel = 1;
-            // } else if (x[0] > 19) {
-            // String name = JOptionPane.showInputDialog("Mời bạn nhập tên: ");
-            // FrameScreen.users.add(new User(name,
-            // String.valueOf(GameScreen.currentLevel)));
-            // GameScreen.isPlaying = false;
-            // GameScreen.isGameOver = true;
-            // GameScreen.diem = 0;
-            // GameScreen.currentLevel = 1;
-            // } else if (y[0] < 0) {
-            // String name = JOptionPane.showInputDialog("Mời bạn nhập tên: ");
-            // FrameScreen.users.add(new User(name,
-            // String.valueOf(GameScreen.currentLevel)));
-            // GameScreen.isPlaying = false;
-            // GameScreen.isGameOver = true;
-            // GameScreen.diem = 0;
-            // GameScreen.currentLevel = 1;
-            // } else if (y[0] > 19) {
-            // String name = JOptionPane.showInputDialog("Mời bạn nhập tên: ");
-            // FrameScreen.users.add(new User(name,
-            // String.valueOf(GameScreen.currentLevel)));
-            // GameScreen.isPlaying = false;
-            // GameScreen.isGameOver = true;
-            // GameScreen.diem = 0;
-            // GameScreen.currentLevel = 1;
-            // }
+            // if (y[0] < 0)
+            // y[0] = 19;
+            // if (y[0] > 19)
+            // y[0] = 0;
+            if (x[0] < 0) {
+                String name = JOptionPane.showInputDialog("Mời bạn nhập tên: ");
+                FrameScreen.users.add(new User(name, Integer.valueOf(GameScreen.currentLevel)));
+                String.valueOf(GameScreen.currentLevel);
+                GameScreen.isPlaying = false;
+                GameScreen.isGameOver = true;
+                GameScreen.diem = 0;
+                GameScreen.currentLevel = 1;
+            } else if (x[0] > 19) {
+                String name = JOptionPane.showInputDialog("Mời bạn nhập tên: ");
+                FrameScreen.users.add(new User(name, Integer.valueOf(GameScreen.currentLevel)));
+                String.valueOf(GameScreen.currentLevel);
+                GameScreen.isPlaying = false;
+                GameScreen.isGameOver = true;
+                GameScreen.diem = 0;
+                GameScreen.currentLevel = 1;
+            } else if (y[0] < 0) {
+                String name = JOptionPane.showInputDialog("Mời bạn nhập tên: ");
+                FrameScreen.users.add(new User(name, Integer.valueOf(GameScreen.currentLevel)));
+                String.valueOf(GameScreen.currentLevel);
+                GameScreen.isPlaying = false;
+                GameScreen.isGameOver = true;
+                GameScreen.diem = 0;
+                GameScreen.currentLevel = 1;
+            } else if (y[0] > 19) {
+                String name = JOptionPane.showInputDialog("Mời bạn nhập tên: ");
+                FrameScreen.users.add(new User(name, Integer.valueOf(GameScreen.currentLevel)));
+                String.valueOf(GameScreen.currentLevel);
+                GameScreen.isPlaying = false;
+                GameScreen.isGameOver = true;
+                GameScreen.diem = 0;
+                GameScreen.currentLevel = 1;
+            }
             t1 = System.currentTimeMillis();
         }
     }
