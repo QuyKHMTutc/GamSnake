@@ -117,7 +117,7 @@ public class GameScreen extends JPanel implements Runnable {
 
         // điểm
         g.setFont(g.getFont().deriveFont(22.0f));
-        g.drawString(" Điểm:  " + diem, 450, 100);
+        g.drawString(" Score:  " + diem, 450, 100);
 
         for (int i = 0; i < FrameScreen.users.size(); i++) {
             g.drawString(FrameScreen.users.get(i).toString(), 450, i * 30 + 150);

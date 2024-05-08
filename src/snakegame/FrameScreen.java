@@ -41,6 +41,7 @@ public class FrameScreen extends JFrame {
         game = new GameScreen();
         add(game);
         this.addKeyListener(new handler());
+        System.out.println(users.size());
         // this.addWindowListener(new WindowAdapter() {
         // @Override
         // public void windowClosing(WindowEvent e) {
@@ -142,7 +143,7 @@ public class FrameScreen extends JFrame {
         try (Connection conn = DriverManager.getConnection(dbUrl)) {
             // Thực hiện truy vấn SQL để lấy tên và cấp độ của 5 người chơi có cấp độ cao
             // nhất
-            String query = "SELECT TOP 5 username, level FROM Player ORDER BY level DESC";
+            String query = "SELECT TOP 5 username, level,score FROM Player ORDER BY score DESC";
             try (java.sql.Statement stmt = conn.createStatement()) {
                 ResultSet rs = stmt.executeQuery(query);
 

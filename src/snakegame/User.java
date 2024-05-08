@@ -32,7 +32,7 @@ public class User {
     }
 
     public String toString() {
-        return name + " " + level;
+        return name + " " + level + " " + score;
     }
 
     public int getScore() {
