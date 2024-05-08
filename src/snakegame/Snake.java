@@ -115,7 +115,8 @@ public class Snake {
             if (x[0] == x[i] && y[0] == y[i]) {
 
                 String name = JOptionPane.showInputDialog("Mời bạn nhập tên: ");
-                FrameScreen.users.add(new User(name, Integer.valueOf(GameScreen.currentLevel)));
+                FrameScreen.users.add(
+                        new User(name, Integer.valueOf(GameScreen.currentLevel), Integer.valueOf(GameScreen.diem)));
 
                 GameScreen.isPlaying = false;
                 GameScreen.isGameOver = true;
@@ -177,7 +178,9 @@ public class Snake {
             // y[0] = 0;
             if (x[0] < 0) {
                 String name = JOptionPane.showInputDialog("Mời bạn nhập tên: ");
-                FrameScreen.users.add(new User(name, Integer.valueOf(GameScreen.currentLevel)));
+                FrameScreen.users
+                        .add(new User(name, Integer.valueOf(GameScreen.currentLevel),
+                                Integer.valueOf(GameScreen.diem)));
                 String.valueOf(GameScreen.currentLevel);
                 GameScreen.isPlaying = false;
                 GameScreen.isGameOver = true;
@@ -185,7 +188,8 @@ public class Snake {
                 GameScreen.currentLevel = 1;
             } else if (x[0] > 19) {
                 String name = JOptionPane.showInputDialog("Mời bạn nhập tên: ");
-                FrameScreen.users.add(new User(name, Integer.valueOf(GameScreen.currentLevel)));
+                FrameScreen.users.add(
+                        new User(name, Integer.valueOf(GameScreen.currentLevel), Integer.valueOf(GameScreen.diem)));
                 String.valueOf(GameScreen.currentLevel);
                 GameScreen.isPlaying = false;
                 GameScreen.isGameOver = true;
@@ -193,7 +197,8 @@ public class Snake {
                 GameScreen.currentLevel = 1;
             } else if (y[0] < 0) {
                 String name = JOptionPane.showInputDialog("Mời bạn nhập tên: ");
-                FrameScreen.users.add(new User(name, Integer.valueOf(GameScreen.currentLevel)));
+                FrameScreen.users.add(
+                        new User(name, Integer.valueOf(GameScreen.currentLevel), Integer.valueOf(GameScreen.diem)));
                 String.valueOf(GameScreen.currentLevel);
                 GameScreen.isPlaying = false;
                 GameScreen.isGameOver = true;
@@ -201,7 +206,8 @@ public class Snake {
                 GameScreen.currentLevel = 1;
             } else if (y[0] > 19) {
                 String name = JOptionPane.showInputDialog("Mời bạn nhập tên: ");
-                FrameScreen.users.add(new User(name, Integer.valueOf(GameScreen.currentLevel)));
+                FrameScreen.users.add(
+                        new User(name, Integer.valueOf(GameScreen.currentLevel), Integer.valueOf(GameScreen.diem)));
                 String.valueOf(GameScreen.currentLevel);
                 GameScreen.isPlaying = false;
                 GameScreen.isGameOver = true;

@@ -36,23 +36,17 @@ public class FrameScreen extends JFrame {
         setSize(750, 450);
         setLocationRelativeTo(null);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-        // users = new ArrayList<User>();
+        users = new ArrayList<User>();
         ReadData();
-
         game = new GameScreen();
         add(game);
-
         this.addKeyListener(new handler());
-
         // this.addWindowListener(new WindowAdapter() {
         // @Override
         // public void windowClosing(WindowEvent e) {
         // UpdateData();
         // }
-
         // });
-
         setVisible(true);// hiển thị frame
     }
 
@@ -118,13 +112,14 @@ public class FrameScreen extends JFrame {
             }
 
             // Thêm dữ liệu mới từ danh sách người chơi vào cơ sở dữ liệu
-            String insertDataSql = "INSERT INTO Player (username, level) VALUES (?, ?)";
+            String insertDataSql = "INSERT INTO Player (username, level,score) VALUES (?, ?,?)";
             try (PreparedStatement pstmt = conn.prepareStatement(insertDataSql)) {
                 conn.setAutoCommit(false); // Disable auto-commit
 
                 for (User u : users) {
                     pstmt.setString(1, u.getName());
                     pstmt.setInt(2, u.getLevel());
+                    pstmt.setInt(3, u.getScore());
                     pstmt.addBatch();
                 }
 
@@ -154,8 +149,9 @@ public class FrameScreen extends JFrame {
                 while (rs.next()) {
                     String name = rs.getString("username");
                     int level = rs.getInt("level");
+                    int score = rs.getInt("score");
                     // Thêm người chơi vào danh sách với tên và cấp độ thực tế từ cơ sở dữ liệu
-                    users.add(new User(name, level));
+                    users.add(new User(name, level, score));
                 }
             }
         } catch (SQLException ex) {
