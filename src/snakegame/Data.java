@@ -35,7 +35,7 @@ public class Data {
 
     public static void LoadImage() {
         try {
-            result = ImageIO.read(new File("E:/java/project/src/snakegame/picture/result.png"));
+            result = ImageIO.read(new File("E:/java/project/GamSnake/src/snakegame/picture/result.png"));
             imageHead = result.getSubimage(0, 0, 200, 200);
             imageBody = result.getSubimage(1600, 0, 200, 200);
             imageWorm = result.getSubimage(1000, 0, 200, 200);
